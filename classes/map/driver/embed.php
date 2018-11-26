@@ -33,9 +33,10 @@ class Map_Driver_Embed extends \Map_Driver
 			'key'      => \Config::get('map.google.api_key.browser'),
 			'q'        => $this->_address,
 			'zoom'     => $this->_zoom,
-			'language' => 'ja',
+			'language' => \Config::get('map.google.language', 'lv'),
 		));
 		$url .= '?'.$query;
+
 		return '<iframe src="'.$url.'" width="'.$this->_width.'" height="'.$this->_height.'" frameborder="0"></iframe>';
 	}
 }
